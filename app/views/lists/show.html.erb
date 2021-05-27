@@ -1,0 +1,34 @@
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-8">
+      <div class="list-show-card">
+        <h1><%= @list.name %></h1>
+      </div>
+      <%= link_to "Add Bookmark", new_list_bookmark_path(@list) %>
+      <%= link_to "Back", lists_path(@lists) %>
+      <%= link_to "Delete", lists_path, method: :delete %>
+
+      <div>
+        <% @list.bookmarks.each do |bookmark| %>
+          <%= image_tag bookmark.movie.full_poster_url, width: 100 %>
+          <%= bookmark.movie.title %>
+          <%= bookmark.comment %>
+        <% end %>
+      </div>
+
+
+      <div class="list-show-card">
+        <div class="flex-align">
+          <h6 class="no-mb">Share</h6>
+
+          <div class="flex">
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-twitter-square"></i>
+            <i class="fab fa-pinterest-square"></i>
+            <i class="fa fa-envelope-square"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

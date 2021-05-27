@@ -1,0 +1,10 @@
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <div class="form-group">
+    <%= f.input :comment %>
+    <%= f.input :movie_id, collection: Movie.all %>
+  </div>
+  <div class="mt-3">
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', lists_path(@lists), class: 'btn btn-danger ml-2' %>
+  </div>
+<% end %>
